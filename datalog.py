@@ -15,14 +15,14 @@ class Controller:
       self.bit_count = self.bit_count + 1
       if self.bit_count >= FLUSH:
          self.datafile.flush()
-         self.datafile = 0
+         self.bit_count = 0
 
    def data1Pulse(self, event):
       self.datafile.write("1")
       self.bit_count = self.bit_count + 1
       if self.bit_count >= FLUSH:
          self.datafile.flush()
-         self.datafile = 0
+         self.bit_count = 0
 
    def start(self, d0pin, d1pin):
       print "Opening '%s' for writing" % DATAFILE
